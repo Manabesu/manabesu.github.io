@@ -1,19 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
+    
     // =========================================
     // 1. THEME TOGGLE LOGIC
     // =========================================
     const themeToggleBtn = document.getElementById('theme-toggle');
     const html = document.documentElement; 
 
-    // Sync the button text to whatever the <head> script decided
     if (themeToggleBtn) {
-        if (html.getAttribute('data-theme') === 'dark') {
-            themeToggleBtn.innerHTML = '☕';
-        } else {
-            themeToggleBtn.innerHTML = '🪶';
-        }
+        // Set initial emoji based on the starting theme
+        themeToggleBtn.innerHTML = html.getAttribute('data-theme') === 'dark' ? '☕' : '🪶';
 
-        // Handle the toggle button click
+        // Listen for the click
         themeToggleBtn.addEventListener('click', () => {
             if (html.getAttribute('data-theme') === 'dark') {
                 html.removeAttribute('data-theme');
@@ -35,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (hamburgerBtn && navLinks) {
         hamburgerBtn.addEventListener('click', () => {
-            // Toggles the "active" class on and off
+            // Toggles the dropdown open and closed
             navLinks.classList.toggle('active');
         });
     }
@@ -45,12 +42,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // =========================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            
             const targetId = this.getAttribute('href');
+            
+            // Safety check: Don't do anything if the link is just a blank "#"
+            if (targetId === '#') return;
+
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
+                e.preventDefault();
                 const headerOffset = 80;
                 const elementPosition = targetSection.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.scrollY - headerOffset;
@@ -59,15 +59,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     top: offsetPosition,
                     behavior: "smooth"
                 });
-            }
 
-            // Closes the mobile menu automatically when a link is clicked
-            if (navLinks && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
+                // Automatically close the mobile menu after clicking a link!
+                if (navLinks && navLinks.classList.contains('active')) {
+                    navLinks.classList.remove('active');
+                }
             }
         });
     });
 });
 ```eof
 
-Replace your current code with this, ensure your `style.css` has that `display: flex !important;` rule for `.nav-links.active`, and give it a hard refresh. Your menu should drop down perfectly now!
+### Two quick checks to guarantee it works:
+
+1. **The CSS Force-Show:** Make sure the very last rule in your `style.css` file has the `!important` tag on it. It must look exactly like this so the Javascript can force the menu open:
+   ```css
+   .nav-links.active {
+       display: flex !important;
+   }
