@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compact Resume | Digital Garden</title>
+    <!-- Link to your shared aesthetic CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ANTI-FLASHBANG SCRIPT -->
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Shared Top Navigation -->
+    <header>
+        <nav style="padding: 0.5rem 2rem;">
+            <a href="index.html" class="logo">&larr; Manab<span>.</span>esu</a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#experience">Experience</a></li>
+                <li class="active_nav"><a href="resume.html">Resume/CV</a></li>
+                <li><a href="article.html">Articles</a></li>
+            </ul>
+            <button id="theme-toggle">☕ </button>
+        </nav>
+    </header>
+
+    <main class="resume-wrapper">
+        <!-- Compact Header - CHANGED TO DIV -->
+        <div class="resume-header">
+            <div class="header-left">
+                <h1 class="name">Manabesu</h1>
+                <div class="title">Computer Science Undergraduate</div>
+            </div>
+            
+            <div class="header-right">
+                <div class="contact-info">
+                    <span class="contact-item">📍 SOA, Odisha</span><br>
+                    <span class="contact-item">✉️ <a href="mailto:manabendra.edu@gmail.com">manabendra.edu@gmail.com</a></span><br>
+                    <span class="contact-item">🔗 <a href="https://www.github.com/Manabesu">Github</a></span><br>
+                    <span class="contact-item">💼 <a href="https://www.linkedin.com/in/manabendra-m-564013378/">LinkedIn</a></span>
+                </div>
+                <a href="wip.html" target="_blank" class="btn-download">📄 Download PDF</a>
+            </div>
+        </div>
+
+        <!-- Elegant Two-Column Layout -->
+        <div class="resume-grid">
+            
+            <!-- LEFT COLUMN -->
+            <div class="main-column">
+                <h2 class="section-title">Summary</h2>
+                <p class="compact-p">Motivated Computer Science student with a strong foundation in software development and problem-solving. Passionate about learning new web technologies and eager to contribute to impactful projects through a software engineering summer internship.</p>
+
+                <h2 class="section-title">Projects & Experience</h2>
+                <div class="timeline-container">
+                    
+                    <div class="timeline-item-resume">
+                        <div class="item-header">
+                            <h3>This Website</h3>
+                            <span class="item-date">Summer 2026</span>
+                        </div>
+                        <div class="item-org">Self Project</div>
+                        <ul class="item-bullets">
+                            <li>Developed this website.</li>
+                            <li>Will continue to achieve perfection.</li>
+                        </ul>
+                    </div>
+
+  <!--Add a div here-->
+
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="side-column">
+                <h2 class="section-title">Education</h2>
+                <div class="timeline-container" style="margin-bottom: 2.5rem;">
+                    <div class="timeline-item-resume">
+                        <div class="item-header">
+                            <h3>B.Tech. Computer Science</h3>
+                        </div>
+                        <div class="item-org">SOA University</div>
+                        <span class="item-date" style="display: block; margin-bottom: 0.6rem;">Expected June 2029</span>
+                        <div style="font-size: 0.9rem; color: var(--text-muted); line-height: 1.5;">
+                            <strong>CGPA:</strong> 9.3 / 10.0<br>
+                            <strong>Coursework:</strong> Data Structures, Algorithms.
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="section-title">Languages</h2>
+                <div class="skills-grid">
+                    <span class="skill-pill">Java (...)</span>
+                    <span class="skill-pill">Python (...)</span>
+                    <span class="skill-pill">Svelte (...)</span>
+                    <span class="skill-pill">Kotlin (...)</span>
+                </div>
+                <div><br>
+                    <h2 class="section-title">Extra Curricular</h2>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-header">
+                            <h3>Codeforces : <a href="https://codeforces.com/profile/smango">Novice</a></h3>
+                            <span class="date">elo: 0</span>
+                        </div>
+                        <div class="timeline-header">
+                            <h3 href="">CS50</h3>
+                            <span class="date">Ongoing<p style="color: var(--text-muted); font-size: 1.0rem;">Week 5</p></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Theme Toggle Logic (Links to shared script) -->
+    <script src="script.js"></script>
+</body>
+</html>
