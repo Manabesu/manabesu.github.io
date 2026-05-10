@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Articles | Manabesu</title>
+    <!-- Link to your shared aesthetic CSS -->
+    <link rel="stylesheet" href="cv.css">
+    
+    <!-- ANTI-FLASHBANG SCRIPT -->
+    <script>
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header>
+        <nav style="padding: 0.5rem 2rem;">
+            <a href="cv.html" class="logo">&larr; Manab<span>.</span>esu</a>
+           <ul class="nav-links">
+                <li><a href="cv.html#home">Home</a></li>
+                <li><a href="cv.html#about">About</a></li>
+                <li><a href="cv.html#experience">Experience</a></li>
+                <li><a href="resume.html">Resume/CV</a></li>
+                <li class="active_nav"><a href="article.html">Articles</a></li>
+            </ul>
+            <button id="theme-toggle">☕</button>
+        </nav>
+    </header>
+
+    <!-- Main Collection Container -->
+    <main style="max-width: 900px; margin: 0 auto; padding: 120px 2rem 4rem;">
+        
+        <div style="margin-bottom: 4rem; text-align: center;">
+            <h1 style="font-size: 3rem; margin-bottom: 0.5rem; color: var(--text-color); font-family: var(--font-heading);">Articles' Archives</h1>
+            <p style="color: var(--text-muted); font-size: 1.1rem;">Collection of my thoughts, notes, and digital essays.</p>
+        </div>
+
+        <div class="blog-grid">
+            <!-- Article 1 -->
+            <div class="blog-card">
+                <span class="date">May 10, 2026</span>
+                <h3>While making this website</h3>
+                <p>Exploring how to make this.</p>
+                <a href="wip.html" class="read-more">Read Entry &rarr;</a>
+            </div>
+
+            <!-- Article 2 -->
+            
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Built with care and a lot of tea and water.</p>
+    </footer>
+
+    <!-- Link to your shared aesthetic JS -->
+    <script src="cv.js"></script>
+</body>
+</html>
