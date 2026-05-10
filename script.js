@@ -23,7 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-            // Mobile Dropdown Menu Logic
+        }
+                    // Mobile Dropdown Menu Logic
         const hamburgerBtn = document.getElementById('hamburger');
         const navLinks = document.querySelector('.nav-links');
     
@@ -32,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Toggles the "active" class on and off
                 navLinks.classList.toggle('active');
             });
-        }
     }
 
     // Smooth Scrolling for Navigation Links
