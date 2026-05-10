@@ -286,6 +286,54 @@ footer {
     border-radius: 0 16px 16px 0; font-style: italic; color: var(--text-muted);
 }
 
+/* ========================================= */
+/* MOBILE DROPDOWN MENU                      */
+/* ========================================= */
+
+/* Hide the hamburger icon on large desktop screens */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.3s ease;
+}
+
+.hamburger:hover {
+    color: var(--primary-color);
+}
+
+/* Mobile Layout Adjustments */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Show the icon on phones */
+    }
+
+    /* Convert the horizontal nav-links into a floating dropdown box */
+    .nav-links {
+        display: none; /* Hide the standard horizontal row */
+        position: absolute;
+        top: 75px;
+        right: 2rem;
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem 2.5rem;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+    }
+
+    /* This class is added by JavaScript when the hamburger is clicked */
+    .nav-links.active {
+        display: flex;
+    }
+}
+
 /*======Chat Box============*/
 
 .chat-container {
