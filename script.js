@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // =========================================
+    // 1. THEME TOGGLE LOGIC
+    // =========================================
     const themeToggleBtn = document.getElementById('theme-toggle');
     const html = document.documentElement; 
 
@@ -22,20 +25,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 themeToggleBtn.innerHTML = '☕';
             }
         });
-
-        }
-                    // Mobile Dropdown Menu Logic
-        const hamburgerBtn = document.getElementById('hamburger');
-        const navLinks = document.querySelector('.nav-links');
-    
-        if (hamburgerBtn && navLinks) {
-            hamburgerBtn.addEventListener('click', () => {
-                // Toggles the "active" class on and off
-                navLinks.classList.toggle('active');
-            });
     }
 
-    // Smooth Scrolling for Navigation Links
+    // =========================================
+    // 2. MOBILE DROPDOWN MENU LOGIC
+    // =========================================
+    const hamburgerBtn = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (hamburgerBtn && navLinks) {
+        hamburgerBtn.addEventListener('click', () => {
+            // Toggles the "active" class on and off
+            navLinks.classList.toggle('active');
+        });
+    }
+
+    // =========================================
+    // 3. SMOOTH SCROLLING
+    // =========================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -53,6 +60,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     behavior: "smooth"
                 });
             }
+
+            // Closes the mobile menu automatically when a link is clicked
+            if (navLinks && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
         });
     });
 });
+```eof
+
+Replace your current code with this, ensure your `style.css` has that `display: flex !important;` rule for `.nav-links.active`, and give it a hard refresh. Your menu should drop down perfectly now!
