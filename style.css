@@ -423,11 +423,20 @@ footer {
 
 /* Mobile Layout Adjustments */
 @media (max-width: 768px) {
+    /* 1. Show the hamburger icon */
     .hamburger {
-        display: block; /* Show the icon on phones */
+        display: block; 
     }
 
-    /* Convert the horizontal nav-links into a floating dropdown box */
+    /* 2. Adjust the button container to make room for the hamburger */
+    nav div {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        z-index: 1001; /* Ensure buttons stay clickable ABOVE the menu */
+    }
+
+    /* 3. Convert the horizontal nav-links into a floating dropdown box */
     .nav-links {
         display: none; /* Hide the standard horizontal row */
         position: absolute;
@@ -443,7 +452,7 @@ footer {
         z-index: 1000;
     }
 
-    /* This class is added by JavaScript when the hamburger is clicked */
+    /* 4. This class is added by JavaScript when the hamburger is clicked */
     .nav-links.active {
         display: flex !important;
     }
