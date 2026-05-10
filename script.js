@@ -22,6 +22,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 themeToggleBtn.innerHTML = '☕';
             }
         });
+
+            // Mobile Dropdown Menu Logic
+        const hamburgerBtn = document.getElementById('hamburger');
+        const navLinks = document.querySelector('.nav-links');
+    
+        if (hamburgerBtn && navLinks) {
+            hamburgerBtn.addEventListener('click', () => {
+                // Toggles the "active" class on and off
+                navLinks.classList.toggle('active');
+            });
+        }
     }
 
     // Smooth Scrolling for Navigation Links
