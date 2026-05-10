@@ -445,6 +445,6 @@ footer {
 
     /* This class is added by JavaScript when the hamburger is clicked */
     .nav-links.active {
-        display: flex;
+        display: flex !important;
     }
 }
