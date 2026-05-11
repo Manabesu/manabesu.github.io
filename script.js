@@ -1,7 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // =========================================
-    // 1. THEME TOGGLE (Your working version)
-    // =========================================
     const themeToggleBtn = document.getElementById('theme-toggle');
     const html = document.documentElement; 
 
@@ -27,21 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // =========================================
-    // 2. MOBILE DROPDOWN (Safely added)
-    // =========================================
-    const hamburgerBtn = document.getElementById('hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    
-    if (hamburgerBtn && navLinks) {
-        hamburgerBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-    }
-
-    // =========================================
-    // 3. SMOOTH SCROLLING (Your working version)
-    // =========================================
+    // Smooth Scrolling for Navigation Links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
@@ -59,14 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     behavior: "smooth"
                 });
             }
-
-            // Closes the menu automatically if you click a link on mobile
-            if (navLinks && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-            }
         });
     });
 });
-```eof
-
-Replace your `script.js` with this. Because it uses your proven, working logic, the light/dark mode will function exactly as it did before, but now the hamburger menu has the instructions it needs to drop down on mobile!
