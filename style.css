@@ -406,9 +406,18 @@ footer {
 /* MOBILE & TABLET DROPDOWN MENU             */
 /* ========================================= */
 
-/* 1. Default for PC: Hide the hamburger icon */
+/* 1. Global protection for your buttons so NOTHING can overlap them */
+nav div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative; /* REQUIRED for z-index to work! */
+    z-index: 9999;      /* Forces the buttons to the absolute top layer */
+}
+
+/* 2. Default for PC: Hide the hamburger icon */
 .hamburger {
-    display: none; /* Keeps it invisible on large screens */
+    display: none; 
     background: none;
     border: none;
     color: var(--text-color);
@@ -422,24 +431,16 @@ footer {
     color: var(--primary-color);
 }
 
-/* 2. Tablet & Mobile Layout Adjustments (Triggers when window is thinner than 850px) */
+/* 3. Tablet & Mobile Layout (Triggers when window is thinner than 850px) */
 @media (max-width: 850px) {
     /* Show the hamburger icon */
     .hamburger {
         display: block; 
     }
 
-    /* Adjust the button container to make room */
-    nav div {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        z-index: 1001; /* Keeps buttons clickable ABOVE the menu */
-    }
-
-    /* Hide the horizontal links and turn them into a floating dropdown box */
+    /* Turn the horizontal links into a floating dropdown box */
     .nav-links {
-        display: none; /* Hides the standard top row */
+        display: none; 
         position: absolute;
         top: 75px;
         right: 2rem;
@@ -450,12 +451,12 @@ footer {
         gap: 1.5rem;
         padding: 1.5rem 2.5rem;
         box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-        z-index: 1000;
+        z-index: 1000; /* Stays underneath the 9999 buttons */
     }
 
-    /* This class is added by JavaScript when the hamburger is clicked */
+    /* Added by JavaScript when the hamburger is clicked */
     .nav-links.active {
-        display: flex !important; /* Forces the menu to drop down */
+        display: flex !important; 
     }
 }
 ```eof
