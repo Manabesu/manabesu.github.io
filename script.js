@@ -1,16 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-
     // =========================================
-    // 1. THEME TOGGLE LOGIC
+    // 1. THEME TOGGLE (Your working version)
     // =========================================
     const themeToggleBtn = document.getElementById('theme-toggle');
     const html = document.documentElement; 
 
+    // Sync the button text to whatever the <head> script decided
     if (themeToggleBtn) {
-        // Set initial emoji based on the starting theme
-        themeToggleBtn.innerHTML = html.getAttribute('data-theme') === 'dark' ? '☕' : '🪶';
+        if (html.getAttribute('data-theme') === 'dark') {
+            themeToggleBtn.innerHTML = '☕';
+        } else {
+            themeToggleBtn.innerHTML = '🪶';
+        }
 
-        // Listen for the click
+        // Handle the toggle button click
         themeToggleBtn.addEventListener('click', () => {
             if (html.getAttribute('data-theme') === 'dark') {
                 html.removeAttribute('data-theme');
@@ -25,32 +28,28 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================
-    // 2. MOBILE DROPDOWN MENU LOGIC
+    // 2. MOBILE DROPDOWN (Safely added)
     // =========================================
     const hamburgerBtn = document.getElementById('hamburger');
     const navLinks = document.querySelector('.nav-links');
     
     if (hamburgerBtn && navLinks) {
         hamburgerBtn.addEventListener('click', () => {
-            // Toggles the dropdown open and closed
             navLinks.classList.toggle('active');
         });
     }
 
     // =========================================
-    // 3. SMOOTH SCROLLING
+    // 3. SMOOTH SCROLLING (Your working version)
     // =========================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
+            e.preventDefault();
             
-            // Safety check: Don't do anything if the link is just a blank "#"
-            if (targetId === '#') return;
-
+            const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
-                e.preventDefault();
                 const headerOffset = 80;
                 const elementPosition = targetSection.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.scrollY - headerOffset;
@@ -59,15 +58,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     top: offsetPosition,
                     behavior: "smooth"
                 });
+            }
 
-                // Automatically close the mobile menu after clicking a link!
-                if (navLinks && navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                }
+            // Closes the menu automatically if you click a link on mobile
+            if (navLinks && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
             }
         });
     });
 });
-```eof
-
-Replace the code in both files, save them, wait 60 seconds (for GitHub Pages), and do a Hard Refresh. The Javascript is completely clean of typos, and the HTML is now structured perfectly to support it!
