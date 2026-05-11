@@ -401,6 +401,61 @@ footer {
     .timeline-item-resume::before { background-color: #b5bed5 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     .item-date, .header-left .title { color: #b5bed5 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 }
-```eof
 
-*Note: In the resume HTML you're using from the Canvas, make sure the timeline classes are `<div class="timeline-item-resume">` so they don't accidentally inherit the styles from your homepage experience section!*
+/* ========================================= */
+/* MOBILE & TABLET DROPDOWN MENU             */
+/* ========================================= */
+
+/* 1. Default for PC: Hide the hamburger icon */
+.hamburger {
+    display: none; /* Keeps it invisible on large screens */
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.3s ease;
+}
+
+.hamburger:hover {
+    color: var(--primary-color);
+}
+
+/* 2. Tablet & Mobile Layout Adjustments (Triggers when window is thinner than 850px) */
+@media (max-width: 850px) {
+    /* Show the hamburger icon */
+    .hamburger {
+        display: block; 
+    }
+
+    /* Adjust the button container to make room */
+    nav div {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        z-index: 1001; /* Keeps buttons clickable ABOVE the menu */
+    }
+
+    /* Hide the horizontal links and turn them into a floating dropdown box */
+    .nav-links {
+        display: none; /* Hides the standard top row */
+        position: absolute;
+        top: 75px;
+        right: 2rem;
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 16px;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem 2.5rem;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+    }
+
+    /* This class is added by JavaScript when the hamburger is clicked */
+    .nav-links.active {
+        display: flex !important; /* Forces the menu to drop down */
+    }
+}
+```eof
