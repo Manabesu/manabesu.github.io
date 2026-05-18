@@ -1,6 +1,6 @@
 // Import Firebase modules
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
+import { getDatabase, ref, push, onChildAdded, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js";
 
 // PASTE YOUR CONFIG HERE:
 const firebaseConfig = {
@@ -41,21 +41,6 @@ onChildAdded(chatRef, (snapshot) => {
 });
 
 // Function to send a message
-function sendMessage() {
-  const text = messageInput.value.trim();
-  if (text !== "") {
-    const name = usernameInput.value.trim() || "Anonymous";
-    
-    push(chatRef, {
-      name: name,
-      text: text,
-      timestamp: Date.now()
-    });
-    
-    messageInput.value = ""; 
-  }
-}
-
 function sendMessage() {
   const text = messageInput.value.trim();
   if (text !== "") {
