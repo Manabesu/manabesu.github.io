@@ -1,0 +1,60 @@
+@import "tailwindcss";
+@custom-variant dark (&:is(.dark, .dark *));
+
+@theme {
+  --font-heading: "Georgia", serif;
+  --font-body: "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  --color-warm-bg: #fcfaf7;
+  --color-warm-dark-bg: #272523;
+  --color-warm-text: #4a4540;
+  --color-warm-dark-text: #eae6e0;
+  --color-warm-primary: #455173;
+  --color-warm-dark-primary: #b5bed5;
+  --color-warm-muted: #8c847a;
+  --color-warm-dark-muted: #a39c96;
+  --color-warm-border: #ebe4db;
+  --color-warm-dark-border: #423e3b;
+  --color-warm-card: #ffffff;
+  --color-warm-dark-card: #302d2b;
+}
+
+@layer base {
+  body {
+    @apply bg-warm-bg text-warm-text dark:bg-warm-dark-bg dark:text-warm-dark-text font-body transition-colors duration-300;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-normal;
+  }
+
+  a {
+    @apply text-warm-primary dark:text-warm-dark-primary transition-colors duration-200;
+  }
+
+  a:hover {
+    @apply opacity-80;
+  }
+}
+
+.active-nav {
+  @apply text-warm-primary dark:text-warm-dark-primary underline underline-offset-4 decoration-wavy decoration-2;
+}
+
+.timeline-item-resume {
+  @apply relative pl-6 mb-6;
+}
+
+.timeline-item-resume::before {
+  content: "";
+  @apply absolute left-0 top-1.5 w-2 h-2 rounded-full bg-warm-primary dark:bg-warm-dark-primary;
+}
+
+.timeline-item-resume::after {
+  content: "";
+  @apply absolute left-[3.5px] top-[26px] bottom-[-24px] w-[1.5px] bg-warm-border dark:bg-warm-dark-border;
+}
+
+.timeline-item-resume:last-child::after {
+  @apply hidden;
+}

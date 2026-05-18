@@ -1,107 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manab.esu</title>
-    <link rel="stylesheet" href="style.css">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manabesu | Digital Garden</title>
+    <!-- Anti-Flashbang Script -->
     <script>
-        const savedTheme = localStorage.getItem('theme');
-        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-        }
+      const savedTheme = localStorage.getItem('theme');
+      const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+        document.documentElement.classList.add('dark');
+      }
     </script>
-</head>
-<body>
-
-<header>
-        <nav>
-            <a href="#home" class="logo">Manab<span>.</span>esu</a>
-            <ul class="nav-links">
-                <li class="active_nav"><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="resume.html">Resume/CV</a></li>
-                <li><a href="article.html">Articles</a></li>
-            </ul>
-            <div class="nav-buttons" style="display: flex; align-items: center; gap: 1rem; position: relative; z-index: 9999;">
-                <button id="theme-toggle">☕</button>
-                <button id="hamburger" class="hamburger">⌄</button>
-            </div>
-        </nav>
-    </header>
-
-    <main>
-        <section id="home">
-            <div>
-                <span class="accent-highlight">SUP!</span>
-                <h1 class="intro-greeting">Hi, I'm a human?.</h1>
-                <p class="intro-subtitle">Welcome to my website. No idea how you found this. <br>If I personally shared this you, then you are probably a recruiter. Then skip over to the Resume Section. If not, then Hi!</p>
-            </div>
-        </section>
-
-        <section id="about">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <div class="profile-pic">🌱</div>
-                <div class="about-text">
-                    <p>I believe technology shouldn't just be functional; it should feel human, gentle, and friging AWESOMEEE!!!<br> I spend my days writing code, exploring nature and myself, daydreaming, and finding beauty in the little details<small> (mainly my ocd ;p)</small>.</p>
-                    <p>This space is a collection of my thoughts, the work I'm proud of, and the journey of learning as I go. Grab a cup of tea <small>(or coffee) </small>and feel free to look around.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience">
-            <h2>My Journey</h2>
-            
-
-            <div class="experience-item">
-                <h3>Student</h3>
-                <span class="date">SOA • 2025 - Present</span>
-                <p>Well... Try to develop the best version of myself</p>
-            </div>
-        </section>
-
-        <section id="blogs">
-            <h2>Featured Articles</h2>
-            
-            <div class="blog-grid">
-                <div class="blog-card">
-                    <span class="date">April 26, 2026</span>
-                    <h3>While building this website..</h3>
-                    <p>How I finally gathered up my energy to start building my space</p>
-                    <a href="wip.html" class="read-more">Read Entry &rarr;</a>
-                </div>
-
-                <div class="blog-card">
-                    <span class="date">???</span>
-                    <h3>Lorem Epsum or something</h3>
-                    <p>...</p>
-                    <a href="wip.html" class="read-more">Don't Read Entry &rarr;</a>
-                </div>
-
-            </div>
-        </section><section><h2>Public Room </h2>
-                                                                <div class="chat-container">
-                                                                    <div id="chat-messages" class="chat-messages"></div>
-                                                                    <div class="chat-inputs">
-                                                                        <input type="text" id="username" placeholder="Name (optional)" class="theme-input" />
-                                                                        <input type="text" id="message" placeholder="Type a message..." class="theme-input" />
-                                                                        <button id="send-btn" class="theme-button">Send</button>
-                                                                    </div>
-                                                                </div>
-
-                                                                <!-- Link to your external JS file. The type="module" part is mandatory! -->
-                                                                <script type="module" src="chat.js"></script></section>
-    </main>
-
-    <footer>
-        <p>Contact : <a href="mailto:manabendra.edu@gmail.com">Mail</a></p>
-        <p>&copy; 2026 Built with care and a lot of water.</p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
+
