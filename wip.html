@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Work in Progress | Manabesu</title>
-    <!-- Link to your shared aesthetic CSS -->
+    <title>WIP | Digital Garden</title>
     <link rel="stylesheet" href="style.css">
-    
-    <!-- ANTI-FLASHBANG SCRIPT -->
     <script>
         const savedTheme = localStorage.getItem('theme');
         const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -17,36 +14,19 @@
     </script>
 </head>
 <body>
-
-    <!-- Floating Theme Toggle pinned to the top right -->
     <div style="position: absolute; top: 2rem; right: 2rem;">
         <button id="theme-toggle">☕ Light Mode</button>
     </div>
-
-    <!-- Overriding the global 100px navbar padding and locking height to the screen -->
     <main style="padding-top: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;">
-        
-        <!-- Canceling the default #home padding so it doesn't push past the screen -->
-        <section id="home" style="min-height: auto; padding: 0; border: none;">
-            <div>
-                <!-- Utilizing the intro-greeting class to make the emoji massive -->
-                <div class="intro-greeting">🪴</div>
-                
-                <span class="accent-highlight">Tending the Garden</span>
-                <h1 class="intro-greeting">Work in Progress</h1>
-                
-                <p class="intro-subtitle">
-                    I'm currently planting new seeds and watering the code in this corner of the site. Grab a cup of tea and check back a little later!
-                </p>
-
-                <!-- Utilizing the back-link class from your blog template for the return link -->
-                <a href="index.html" class="back-link">&larr; Back to safety</a>
-            </div>
+        <section style="min-height: auto; padding: 0; border: none; text-align: center;">
+            <div style="font-size: 6rem; margin-bottom: 2rem; animation: bounce 2s infinite;">🪴</div>
+            <span class="accent-highlight">Tending the Garden</span>
+            <h1 class="intro-greeting" style="font-size: 3rem;">Work in Progress</h1>
+            <p class="intro-subtitle" style="margin-top: 1rem;">I'm currently planting new seeds and watering the code in this corner of the site. Grab a cup of tea and check back a little later!</p>
+            <a href="index.html" class="back-link">&larr; Back to safety</a>
         </section>
-
     </main>
-
-    <!-- Link to your shared aesthetic JS -->
     <script src="script.js"></script>
+    <style>@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }</style>
 </body>
 </html>

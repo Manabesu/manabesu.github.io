@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Articles | Manabesu</title>
-    <!-- Link to your shared aesthetic CSS -->
+    <title>Articles | Manabesu</title>
+    <link rel="alternate" type="application/rss+xml" title="Articles RSS Feed" href="rss.xml" />
     <link rel="stylesheet" href="style.css">
-    
-    <!-- ANTI-FLASHBANG SCRIPT -->
     <script>
         const savedTheme = localStorage.getItem('theme');
         const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -17,51 +15,52 @@
     </script>
 </head>
 <body>
-
-    <!-- Navigation -->
     <header>
-        <nav style="padding: 0.5rem 2rem;">
-            <a href="index.html" class="logo">&larr; Manab<span>.</span>esu</a>
-           <ul class="nav-links">
-                <li><a href="index.html#home">Home</a></li>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="index.html#experience">Experience</a></li>
-                <li><a href="resume.html">Resume/CV</a></li>
-                <li class="active_nav"><a href="article.html">Articles</a></li>
-            </ul>
-            <button id="theme-toggle">☕</button>
+        <nav>
+            <a href="index.html" class="logo">Manab<span>.</span>esu</a>
+            <div class="nav-right">
+                <ul class="nav-links" id="main-nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="index.html#experience">Experience</a></li>
+                    <li><a href="resume.html">Resume/CV</a></li>
+                    <li class="active_nav"><a href="article.html">Articles</a></li>
+                </ul>
+            </div>
+            <div class="nav-controls">
+                <div class="dropdown-container" id="nav-dropdown">
+                    <button class="dropdown-btn">⌄</button>
+                    <ul class="dropdown-menu"></ul>
+                </div>
+                <button id="theme-toggle">☕</button>
+            </div>
         </nav>
     </header>
 
-    <!-- Main Collection Container -->
-    <main style="max-width: 900px; margin: 0 auto; padding: 120px 2rem 4rem;">
-        
+    <a href="rss.xml" class="rss-floater" title="Feed" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
+    </a>
+
+    <main class="article-container">
         <div style="margin-bottom: 4rem; text-align: center;">
             <h1 style="font-size: 3rem; margin-bottom: 0.5rem; color: var(--text-color); font-family: var(--font-heading);">Articles' Archives</h1>
-            <p style="color: var(--text-muted); font-size: 1.1rem;">Collection of my thoughts, notes, and digital essays.</p>
+            <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1.5rem;">Collection of my thoughts, notes, and digital essays.</p>
         </div>
 
-        <div class="blog-grid">
-            <!-- Article 1 -->
-            <div class="blog-card">
+        <div class="blog-grid" style="grid-template-columns: 1fr;">
+            <div class="blog-card" style="margin-bottom: 2rem;">
                 <span class="date">May 10, 2026</span>
-                <h3>While making this website</h3>
-                <p>Exploring how to make this.</p>
+                <h3 style="font-size: 1.8rem; margin: 0.5rem 0;">While making this website</h3>
+                <p style="color: var(--text-muted); margin-bottom: 1rem;">Exploring how to make this garden.</p>
                 <a href="wip.html" class="read-more">Read Entry &rarr;</a>
             </div>
-
-            <!-- Article 2 -->
-            
         </div>
-
     </main>
 
-    <!-- Footer -->
     <footer>
         <p>&copy; 2026 Built with care and a lot of tea and water.</p>
     </footer>
 
-    <!-- Link to your shared aesthetic JS -->
     <script src="script.js"></script>
 </body>
 </html>

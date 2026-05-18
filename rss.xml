@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Articles | Manabesu</title>
+    <link>https://manabesu.github.io/article.html</link>
+    <description>Collection of my thoughts, notes, and digital essays.</description>
+    <atom:link href="https://manabesu.github.io/rss.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+        <title>While making this website</title>
+        <link>https://manabesu.github.io/wip.html</link>
+        <description>Exploring how to make this garden.</description>
+        <pubDate>Sun, 10 May 2026 00:00:00 +0000</pubDate>
+        <guid>https://manabesu.github.io/wip.html</guid>
+    </item>
+</channel>
+</rss>
