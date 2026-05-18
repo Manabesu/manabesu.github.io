@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateThemeBtn() {
         if (!themeToggleBtn) return;
         const isDark = html.getAttribute('data-theme') === 'dark';
-        themeToggleBtn.innerHTML = isDark ? '☕ Light' : '🪶 Dark';
+        themeToggleBtn.innerHTML = isDark ? '☕' : '🪶';
     }
 
     if (themeToggleBtn) {
@@ -38,13 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
             e.stopPropagation();
             const isFlex = dropdownMenu.style.display === 'flex';
             dropdownMenu.style.display = isFlex ? 'none' : 'flex';
-            dropdownBtn.innerHTML = isFlex ? 'Dropdown ▼' : 'Dropdown ▲';
+            dropdownBtn.innerHTML = isFlex ? '⌄' : '⌅';
         });
 
         document.addEventListener('click', (e) => {
             if (!dropdownContainer.contains(e.target)) {
                 dropdownMenu.style.display = 'none';
-                dropdownBtn.innerHTML = 'Dropdown ▼';
+                dropdownBtn.innerHTML = '⌄';
             }
         });
 
