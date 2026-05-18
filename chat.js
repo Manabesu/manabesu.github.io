@@ -56,6 +56,22 @@ function sendMessage() {
   }
 }
 
+function sendMessage() {
+  const text = messageInput.value.trim();
+  if (text !== "") {
+    const name = usernameInput.value.trim() || "Anonymous";
+    
+    push(chatRef, {
+      name: name,
+      text: text,
+      // Tell Firebase's server to generate the time instead of the browser
+      timestamp: serverTimestamp() 
+    });
+    
+    messageInput.value = ""; 
+  }
+}
+
 // Send message when button is clicked
 sendBtn.addEventListener('click', sendMessage);
 
