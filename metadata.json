@@ -1,0 +1,8 @@
+{
+  "name": "Manabesu's Digital Garden",
+  "description": "A refined, modern personal portfolio and digital garden featuring a resume, blog, and real-time public chat.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
