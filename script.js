@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
             
-            const isHome = window.location.pathname.endsWith('index.html') || window.location.pathname === '/';
+            const isHome = window.location.pathname.includes('index.html') || document.querySelector(targetId) !== null;
             if (!isHome && targetId !== '#home') return; 
             
             e.preventDefault();
