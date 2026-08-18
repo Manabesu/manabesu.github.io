@@ -14,6 +14,63 @@ const firebaseConfig = {
   measurementId: "G-PWB2N9WYW6"
 };
 
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
+
+const writeRef = ref(db, 'public_chat');
+// Prevent history dump: load only the last 50 messages
+const readQuery = query(writeRef, limitToLast(50));
+
+const chatMessages = document.getElementById('chat-messages');
+const messageInput = document.getElementById('message');
+const usernameInput = document.getElementById('username');
+const sendBtn = document.getElementById('send-btn');
+
+onChildAdded(readQuery, (snapshot) => {
+  const data = snapshot.val() || {};
+  if (!data.text) return; 
+
+  const msgDiv = document.createElement('div');
+  msgDiv.style.marginBottom = "8px";
+  
+  const nameStrong = document.createElement('strong');
+  nameStrong.textContent = `${data.name || 'Anonymous'}: `;
+  
+  const textNode = document.createTextNode(data.text);
+
+  // Immune to XSS injection
+  msgDiv.append(nameStrong, textNode);
+  
+  chatMessages.appendChild(msgDiv);
+  chatMessages.scrollTop = chatMessages.scrollHeight;
+});
+
+function sendMessage() {
+  // Cap length to prevent DB bombing
+  const text = messageInput.value.trim().substring(0, 500); 
+  const name = usernameInput.value.trim().substring(0, 30) || "Anonymous";
+
+  if (!text) return;
+
+  push(writeRef, {
+    name,
+    text,
+    timestamp: serverTimestamp() 
+  }).catch(err => console.error("Firebase write rejected:", err)); 
+  
+  messageInput.value = ""; 
+}
+
+sendBtn.addEventListener('click', sendMessage);
+
+messageInput.addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') sendMessage();
+});
+
+
+/*
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
@@ -66,3 +123,4 @@ messageInput.addEventListener('keypress', function (e) {
     sendMessage();
   }
 });
+*/
