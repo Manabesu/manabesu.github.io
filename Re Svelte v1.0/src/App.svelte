@@ -6,7 +6,6 @@
   import { getDatabase, ref, onChildAdded, push, serverTimestamp, query, limitToLast } from "firebase/database";
 
   // -- FIREBASE SETUP --
-  // Replace this with your actual config object
   const firebaseConfig = {
   apiKey: "AIzaSyDJaIq4pAy_oJY0p8_zmfO_ZZ0v4AhqxKw",
   authDomain: "manabesu-githubio.firebaseapp.com",
@@ -74,24 +73,39 @@
     
     <div class="links">
 	  	<a href="https://discord.com/users/okaymango5"><img src="https://s.magecdn.com/social/16w/mw-discord.png" alt="discord"></a>
-		<a href="https://github.com/Manabesu/"><img src="https://s.magecdn.com/social/16w/mw-github.png" alt="github"></a>
-		<a href="https://www.linkedin.com/in/manabesu/"><img src="https://s.magecdn.com/social/16w/mw-linkedin.png" alt="linkedin"></a>
-		<a href="mailto:mmmanabendra2006@gmail.com"><img src="https://s.magecdn.com/social/16w/mw-mail.png" alt="email"></a>
+      <a href="https://github.com/Manabesu/"><img src="https://s.magecdn.com/social/16w/mw-github.png" alt="github"></a>
+      <a href="https://www.linkedin.com/in/manabesu/"><img src="https://s.magecdn.com/social/16w/mw-linkedin.png" alt="linkedin"></a>
+      <a href="mailto:mmmanabendra2006@gmail.com"><img src="https://s.magecdn.com/social/16w/mw-mail.png" alt="email"></a>
+    </div>
+    <div class="links">
+            <!--<a href="resume.pdf" target="_blank" rel="noopener noreferrer" >
+              <svg width="64px" height="64px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M13 9L15 15L17 9M10 15C9.06812 15 8.60218 15 8.23463 14.8478C7.74458 14.6448 7.35523 14.2554 7.15224 13.7654C7 13.3978 7 12.9319 7 12C7 11.0681 7 10.6022 7.15224 10.2346C7.35523 9.74458 7.74458 9.35523 8.23463 9.15224C8.60218 9 9.06812 9 10 9M7.2 20H16.8C17.9201 20 18.4802 20 18.908 19.782C19.2843 19.5903 19.5903 19.2843 19.782 18.908C20 18.4802 20 17.9201 20 16.8V7.2C20 6.0799 20 5.51984 19.782 5.09202C19.5903 4.71569 19.2843 4.40973 18.908 4.21799C18.4802 4 17.9201 4 16.8 4H7.2C6.0799 4 5.51984 4 5.09202 4.21799C4.71569 4.40973 4.40973 4.71569 4.21799 5.09202C4 5.51984 4 6.07989 4 7.2V16.8C4 17.9201 4 18.4802 4.21799 18.908C4.40973 19.2843 4.71569 19.5903 5.09202 19.782C5.51984 20 6.07989 20 7.2 20Z" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform: scale(0.35);"></path> </g></svg>
+            </a> -->
 
+            <a href="https://medium.com/@manabesu"><img src="https://s.magecdn.com/social/mw-medium.svg" alt="Articles" style="transform: scale(0.8);"></a>
     </div>
   </aside>
 
   <section class="panel right">
     <header>
+    <div style="margin-right: auto;">
+    {#if !isTabTwo}
+    <h3 style="opacity: 50%;">About me</h3>
+    {:else}
+    <h3 style="opacity: 50%;">Interests</h3>
+    {/if}
+    </div>
+    <div>
       <label class="slider-toggle">
         <input type="checkbox" bind:checked={isTabTwo} />
         <span class="slider"></span>
       </label>
+      </div>
     </header>
 
     <article class="content">
       {#if !isTabTwo}
-        	<p>
+      <p>
 			A 2nd year CSE student at SOA Uni.
 			</p>
 			<p>
@@ -106,27 +120,64 @@
 				He may not communicate with you much, but he doesn't mean anything bad.
 			</p>
       {:else}
-        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <ul>
-          <li>Project Alpha: System architecture</li>
-          <li>Project Beta: UI/UX overhaul</li>
-          <li>Project Gamma: Database migration</li>
-        </ul>
+        <div class="interest-list">
+          <div>
+              <ul style="margin-top: 0;">
+                <h3 style="margin:0;">ANIME/MANGA</h3>
+                <li>Tensura</li>
+                <li>Mairimashita! Iruma-kun</li>
+                <li>Hyouka</li>
+                <li>The Apothecary Diaries</li>
+                <li>Tanaka-kun</li>
+                <li>Bocchi the Rock!</li>
+                <li>Mushi-shi</li>
+                <li>No Game No Life</li>
+                <li>Lord of Mysteries</li>
+              </ul>
+          </div>
+          <div>
+              <ul style="margin-top: 0;">
+                <h3 style="margin:0;">GAMES</h3>
+                <li>Hollow Knight</li>
+                <li>Osu</li>
+                <li>Holocure</li>
+                <li>Pokemon</li>
+                <li>AFK Journey</li>
+                <li>Minecraft</li>
+                <li>Stardew Valley</li>
+              </ul>
+          </div>
+            <div>
+              <ul style="margin-top: 0;">
+                <h3 style="margin:0;">OTHERS</h3>
+                <li>Vtubers</li>
+                <li>Mysteries</li>
+                <li>Japanese</li>
+                <li>Novels</li>
+                <li>Listening to Songs</li>
+                <li>Mechatronics</li>
+                <li>Quantum Physics</li>
+                <li>Programming stuff</li>
+              </ul>
+          </div>
+        </div>
+        
       {/if}
     </article>
-  </section>
-
+  </section><!--
+  <section class="panel extra-section">
+    <a href="article.html">Blogs</a>
+    <a href="resume.html">CSE Resume</a>
+  </section> -->
 <section class="panel chat-section">
   <h2>Public Room</h2>
   <div class="chat-container">
     <div class="chat-messages">
       {#each messages as msg}
-			<div class="chat-messages" bind:this={chatContainer}>
-			{#each messages as msg}
+			<div class="" bind:this={chatContainer}>
 				<div class="message">
 				<strong class="user">{msg.name}:</strong> {msg.text}
 				</div>
-			{/each}
 			{#if messages.length === 0}
 				<p class="empty">Loading messages...</p>
 			{/if}
@@ -138,7 +189,7 @@
     </div>
     
     <div class="chat-inputs">
-      <input type="text" bind:value={chatName} placeholder="Name (optional)" class="theme-input name-input" />
+      <input type="text" bind:value={chatName} placeholder="Name" class="theme-input name-input" />
       <input 
         type="text" 
         bind:value={currentMessage} 
@@ -157,7 +208,7 @@
     margin: 0;
     padding: clamp(1rem, 3vw, 3rem);
     color: #e0e0e0;
-    font-family: system-ui, -apple-system, sans-serif;
+    font-family: "Cause", "Segoe UI", Roboto, sans-serif;
     display: grid;
     place-items: center;
     min-height: 100vh;
@@ -194,6 +245,13 @@
     width: clamp(80px, 15vw, 120px);
     height: clamp(80px, 15vw, 120px);
 	transform: scaleX(-1);
+  }
+
+  .interest-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: clamp(1rem, 2vw, 1.5rem);
+    margin-top: 0.5rem;
   }
 
   h1 {
@@ -295,12 +353,17 @@
   p { margin-top: 0; }
   ul { padding-left: 1.5rem; }
 
-
+  .extra-section {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
 
 
   /* -- CHAT SECTION -- */
 .chat-section {
-  grid-column: 1 / -1; /* Forces full width across the grid */
+  grid-column: 1 / -1;
   display: flex;
   flex-direction: column;
   gap: 1rem;
